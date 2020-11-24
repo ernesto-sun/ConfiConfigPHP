@@ -40,4 +40,4 @@ has to offer. Thank You for sharing your knowledge!
 When you submit to this project, your submissions are understood to be 
 under the same [JSON License](https://www.json.org/license.html) that covers this project.
 
-See the [project license](https://github.com/ernesto-sun/ConfiConfigPHP/LICENSE.md) file for details.
+See the [project license](https://github.com/ernesto-sun/ConfiConfigPHP/blob/main/LICENSE.md) file for details.
