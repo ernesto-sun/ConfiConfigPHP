@@ -4,7 +4,7 @@ A small PHP script to manage your project-configuration comfortably.
 
 Made to be integrated into any kind of PHP-project. 
  
-Developed in the context of *Total.HTM Easy*. 
+Developed in the context of [Total.HTM Easy](https://github.com/ernesto-sun/Total.HTM-Easy). 
 
 *Confi Config PHP* is Open Source.
 
