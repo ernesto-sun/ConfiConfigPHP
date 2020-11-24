@@ -16,7 +16,7 @@ a kind-of-safe configuration file structure - it safes me boring time!
 Because it is boring to set up a configuration at each specific web-server
 for each of my clients. 
 
-Because it is boring to look up if it's own configuration of each of my 
+Because it is boring to look up its own configuration of each of my 
 PHP-projects done somehow somewhere different each time. 
 
 
