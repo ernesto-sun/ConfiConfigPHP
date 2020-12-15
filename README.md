@@ -113,7 +113,7 @@ Some meta-information was created as well, accessible by this:
 
 ```
 include($GLOBALS['config']['dir_sec']."meta.y7");
-echo "\r\n\"META\" : ",json_encode($GLOBALS['meta']),"}\r\n";
+echo json_encode($GLOBALS['meta']);
 
 ```
 
