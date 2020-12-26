@@ -11,7 +11,7 @@ Developed in the context of [Total.HTM Easy](https://github.com/ernesto-sun/Tota
 ## Why this project?
 
 A one-script solution for all those ever-repeating steps needed to set up 
-a kind-of-safe configuration file structure - it safes me boring time!   
+a kind-of-safe configuration file structure - it saves me boring time!   
 
 Because it is boring to set up a configuration at each specific web-server
 for each of my clients. 
@@ -22,7 +22,7 @@ PHP-projects done somehow somewhere different each time.
 
 ## Who is it for?
 
-Confi Config PHP is made for Developers, Hackers, Coders 
+Confi Config PHP is made for developers, hackers, coders, etc. 
 
 ## Getting Started
 
@@ -46,11 +46,11 @@ Example-location: http://my-server.com/my-folder/
 
 See the file: 'config_script.php'. It is a stand-alone PHP-script.
 
-The files that start with 'config_set_...' are simple setting-files.   
+The files that start with 'config_set_...' are your simple setting-files.   
 
 1) Text-edit 'config_script.php' and change API_KEY to some random new value.
 
-2) Create and modify the setting files as needed for your project.
+2) Create and modify the setting files as you need it for your project.
 
 3) Copy config_script.php and the setting-files to your intended location. 
 
@@ -68,13 +68,13 @@ In some cases, 'the config_script.php' can not find any write-able folder, and
 or you want to set some specific folder hardcoded. You can do that at the top
 of the file 'config_script.php' by setting PATH_HARDCODED to an absolute path.  
 
-If you want to skip the current Config and create a completely new one, just
+If you want to reset your current config or create a completely new one, just
 remove the file 'config_dont_touch.php' and start over. 
 
 
-### Using a Config with PHP
+### Using a Config within my PHP code
 
-The following PHP-snippet includes the Config info:
+The following PHP-snippet includes your Config info:
 
 ```
 $ok_come_from_api=1;
@@ -107,9 +107,9 @@ file_put_contents($GLOBALS['config']['dir_sec_d'].'my_filename.y7');
 
 Its recommended to use the extension .y7 for your kind-of-secret files, just 
 because that extension is further protected from being shown online by some
-htaccess-files that have been automatically created as well.  
+htaccess-files that have been automatically created.  
 
-Some meta-information was created as well, accessible by this:
+Some meta-information was created as well, accessible like this:
 
 ```
 include($GLOBALS['config']['dir_sec']."meta.y7");
@@ -122,7 +122,7 @@ echo json_encode($GLOBALS['meta']);
 The config_script reads all files that match 'config_set_\*.php'. That means,
 you can just create new setting-files, useful for grouping if you have lots
 of settings. However, within one setting file can be an unlimited number of
-settings. 
+setting values. 
 
 The one file called 'config_set_sec.php' is here for secrets. After each call
 of the config_script the values in this file are emptied. 
@@ -140,10 +140,6 @@ Here an example setting file such as 'config_set_test.php';
 $set_config = array (
   'bool_custom' => 1,
   'minify_css' => 1,
-  'theme_list' => 'light,alu',            
-
-  //  --------- some comment	
-
   'double_custom' => 2.23,
   'string_custom' => 'Hello user!',  
 );
