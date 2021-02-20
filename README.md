@@ -144,8 +144,8 @@ $set_config = array (
   'string_custom' => 'Hello user!',  
 );
 	
-``` 	
-		
+```
+
 IMPORTANT: After changing settings the config_script needs to be called once, 
 in order to write the changes into the 'kind-of-secret' Config. 		
 	
@@ -161,6 +161,23 @@ Each of my PHP-project just has it's own config_script delivered with it.
 When I install a project at some server, the first thing I do after copying
 it all online, is, adapt the settings and call the config_script. 
 
+
+## Setting Admin-Pwd
+
+* The setting "\_\_ADMIN\_\_" sets or overwrites the password of the main-admin. Only works inside config_set_sec.php!
+
+Note: Min-chars: 4, no white-space allowed. Otherwise the value is ignored but nevertheless removed. 
+
+Note: At the very first call, when the folder-structure is set up, and when "\_\_ADMIN\_\_" is set to a valid value, then
+ the admin-user is created. Otherwise the admin-pwd is overwritten, if the admin-user exists. 
+ 
+Note: This is secure, because somebody needs FTP-access or such to write a file, and then still, 
+  the 'config_script.php' would have to be called with the correct API-key. Security-sensitive admins
+  will not even keep the 'config_script.php' at the server. No way for hackers to overwrite the admin-pwd,
+  or lets say: If hackers can set the config they have already been able to do anything on your server.
+  Of course: Use Secure-FTP, and be very very careful with your FTP-accounts. Never give somebody else an FTP-account
+  to your server unless you know the user can never leave it's sub-directory - PHP-user, etc.
+  
 
 ## Built With
 
