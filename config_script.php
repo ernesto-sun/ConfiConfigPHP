@@ -1,6 +1,6 @@
 <?php
 
-// This code is Open Source
+// This code is licensed under JSON License, thus Open Source
 
 define("API_KEY",   "jkd786sdhg2mhnwdhjw76szuad");   // Change and use the API_KEY e.g.: http://.../config_script.php?ak=API_KEY
 
