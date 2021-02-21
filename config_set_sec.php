@@ -1,6 +1,7 @@
 <?php if(!isset($ok_come_from_config_script)) die(); 
 // IMPORTANT: Only set values here. At call of config-script, this file will be overwritten!
-$set_config = array (
-  'admin_make' => '',
-  'api_key' => '',
+
+$set_config = array (
+  '__ADMIN__' => 'pxxx',
+  'test_key' => '',
 );
