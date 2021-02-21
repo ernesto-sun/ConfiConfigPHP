@@ -2,9 +2,10 @@
 
 define("API_KEY",   "jkd786sdhg2mhnwdhjw76szuad");   // Change and use the API_KEY e.g.: http://.../config_script.php?ak=API_KEY
 
-define("PATH_HARDCODED",  "");   // Absolute Path! Leave empty to make script search for a path  
+define("PATH_HARDCODED",  "");   // Absolute Path! Leave empty to make script search for a path  // TODO: Detect and allow relative path for PATH_HARDCODED 
 
-// TODO: Detect and allow relative path for PATH_HARDCODED 
+define("ALLOW_ADMIN", true);     // This allows for the __ADMIN__ setting in config_set_sec.php to create the admin-user at the very first call
+
 
 // ---------------------------------------------------------
 // ---------------------------------------------------------
@@ -29,18 +30,20 @@ if(substr($GLOBALS['cwd'], -1) != "/") $GLOBALS['cwd'] .= "/";
 
 $fp_config = $GLOBALS['cwd']."config_dont_touch.php";
 
+$is_first_time = false;
+
 if(!file_exists($fp_config))
 {
   if(createConfig())
   {
     echo "Ok! Config was created.";
+    $is_first_time = true;
   }
   else
   {
     err("FAILED!! Did not find any directory with any write access!");
   }
 }
-
 
 $ok_come_from_api = 1;
 include($fp_config);
@@ -84,6 +87,27 @@ foreach (glob($GLOBALS['cwd']."config_set_*.php") as $fp_config_set)
 
   foreach ($set_config as $key => $value)
   {
+    if($key == "__ADMIN__")
+    {
+      if(ALLOW_ADMIN && $is_secret)
+      {
+        if(strlen($value) >= 4 && !preg_match('/\s/',$value))  // no white-space
+        {
+          $uh = hash('sha256', 'admin', false);  
+          if($is_first_time)
+          {
+            echo "Creating Admin User.\r\n";
+            file_put_contents($GLOBALS['config']['dir_sec_u']."_un_".$uh.".y7", "Admin"); 
+            file_put_contents($GLOBALS['config']['dir_sec_u']."_uy_".$uh.".y7", 6);   // user-level 6 actually means admin
+          }
+          echo "Setting Admin User Password.\r\n";
+          file_put_contents($GLOBALS['config']['dir_sec_u']."_u_".$uh.".y7", hash('sha256', $value, false));  
+        }
+      }
+      $set_config[$key] = "";
+      continue;
+    }  
+
     $is_num = 0;
     if($is_num = is_numeric($value))
     {
